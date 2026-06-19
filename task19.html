@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Form</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#6a11cb,#2575fc);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.contact-container{
+    background:#fff;
+    width:100%;
+    max-width:500px;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.contact-container h2{
+    text-align:center;
+    color:#2575fc;
+    margin-bottom:20px;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+    color:#333;
+}
+
+.input-group input,
+.input-group textarea{
+    width:100%;
+    padding:12px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    outline:none;
+    transition:0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus{
+    border-color:#2575fc;
+}
+
+textarea{
+    resize:none;
+    height:120px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(45deg,#6a11cb,#2575fc);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.03);
+}
+
+.success-message{
+    text-align:center;
+    color:green;
+    margin-top:15px;
+    display:none;
+}
+
+@media(max-width:600px){
+    .contact-container{
+        padding:20px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="contact-container">
+    <h2>Contact Us</h2>
+
+    <form id="contactForm">
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" required>
+        </div>
+
+        <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" required>
+        </div>
+
+        <div class="input-group">
+            <label>Phone Number</label>
+            <input type="tel" required>
+        </div>
+
+        <div class="input-group">
+            <label>Message</label>
+            <textarea required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+    <div class="success-message" id="successMessage">
+        ✅ Message Sent Successfully!
+    </div>
+</div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    document.getElementById("successMessage").style.display = "block";
+    this.reset();
+});
+</script>
+
+</body>
+</html>
